@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@400;500;700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/**
+font-family: 'Kaisei Opti', serif;
+font-family: 'Playfair Display SC', serif;
+**/
+
+/**Firefox**/
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(126, 126, 126) rgb(75, 75, 75);
+  }
+  
+/**Chrome, Edge, and Safari**/
+*::-webkit-scrollbar {
+    width: 12px;
+}
+  
+*::-webkit-scrollbar-track {
+    background:rgb(75, 75, 75);
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(126, 126, 126);
+    border-radius: 10px;
+    border: 2px solid rgb(75, 75, 75);
+}
+
+
+/**BASE**/
+html {
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Kaisei Opti', serif;
+}
+
+body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-image: url(assets/sand_dunes.jpg);
+    backdrop-filter: blur(3px);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1, h2, p, a {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-family: 'Playfair Display SC', serif;
+    letter-spacing: 0.1em;
+    color: white;
+    font-size: 3.7rem;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.123);
+}
+
+.main_chunk h1 {
+    margin-bottom: 0.6em;
+}
+h2 {
+    font-family: 'Playfair Display SC', serif;
+    letter-spacing: 0.05em;
+    color: white;
+    font-size: 2.9rem;
+    text-align: center;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.082);
+    margin-top: 0.2em; 
+    margin-bottom: 0.3em;
+}
+
+h3 {
+    font-family: 'Playfair Display SC', serif;
+    letter-spacing: 0.05em;
+    color: white;
+    font-size: 1.6rem;
+    text-align: center;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.082);
+    margin-top: 0.8em; 
+}
+
+header{
+    width: 100%;
+}
+
+
+
+/**Flexing Body Keep Separate for Clarity**/
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/**NAV**/
+nav {
+    width: 100%;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.nav_home:hover {
+    text-shadow: 1px 1px 12px rgba(133, 133, 133, 0.747);
+}
+
+.nav_in:hover {
+    color: rgb(255, 187, 98);
+    text-shadow: none;
+}
+
+.nav_nz:hover {
+    color: rgb(141, 213, 241);
+    text-shadow: none;
+}
+
+.nav_jp:hover {
+    color: rgb(240, 180, 180);
+    text-shadow: none; 
+}
+
+img:hover {
+    transform: scale(0.96);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.562);
+}
+
+.main_chunk, .chunk {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+    min-height: 100%;
+    height: fit-content;
+    width: 100%;
+}
+
+.chunk {
+    flex-grow: 1;
+}
+
+
+
+/**DISPLAY FOR TESTING**/
+.main_chunk {
+    display: flex;
+}
+
+#india {
+    display: none;
+}
+
+#nz {
+    display: none;
+}
+
+#japan{
+    display: none;
+}
+
+
+
+/**Pop Up**/
+.pop_up {
+    max-height: 90%;
+    display: none;
+    flex-shrink: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.pop_up img {
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.full_image {
+    display: flex;
+    max-height: 1100px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.863);
+    padding: 0px;
+    padding-bottom: 4%;
+    padding-top: 2%;
+    margin: 0.6em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 5px;
+}
+
+
+.center_image {
+    max-width: 90%;
+    max-height: 1000px;
+    align-self: center;
+}
+
+.x {
+    display: block;
+    flex-basis: auto;
+    align-self: flex-end;
+    max-height: 20px;
+    width: auto;
+    margin: 15px;
+    margin-top: 2px;
+    margin-left: 0;
+}
+
+.x:hover {
+    transform: scale(0.90);
+}
+
+
+
+/**MAIN**/
+.main_chunk header {
+    padding-top: 4%;
+    height: 8%;
+}
+
+.locations {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.locations img {
+    width: 80%;
+    max-width: 600px;
+    margin: 3%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+/**Gallery Sections**/
+#in_gallery_js, #nz_gallery_js, #japan_gallery_js  {
+    width: 94%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+}
+        
+.gallery_images img {
+    margin: 0.5%;
+    margin-bottom: 30px;
+}
+
+/**Images Flex Constrict**/
+.land {
+    width: 500px;
+    height: auto;
+}
+
+.port {
+    height: 450px;
+    width: auto;
+}
+
+/**Max Media**/
+@media (max-width: 1400px) {
+    .land, .port {
+        width: 600px;
+        max-height: none;
+        height: auto;
+    }
+
+    nav {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%; 
+    }
+
+    h3 {
+        font-size: 1.7em;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .land, .port {
+        width: 500px;
+        max-height: none;
+        height: auto;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 600px) {
+    .land, .port {
+        width: 400px;
+        max-height: none;
+        height: auto;
+    }
+
+    nav {
+        margin-top: 1em;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    h1 {
+        font-size: 3.4em;
+    }
+
+    h2 {
+        font-size: 2.7em;
+    }
+
+    h3 {
+        margin-top: 0.2em; 
+        font-size: 1.7em;
+    }
+
+    .nav_home {
+        grid-area: 1;
+    }
+    
+    /**India**/
+    #in_nav_nz {
+        grid-area: 2;
+    }
+    
+    #in_nav_jp {
+        grid-area: 3;
+    }
+
+    /**New Zealand**/
+    #nz_nav_in {
+        grid-area: 2;
+    }
+    
+    #nz_nav_jp {
+        grid-area: 3;
+    }
+    
+
+    /**Japan**/
+    #jp_nav_in {
+        grid-area: 2;
+    }
+    
+    #jp_nav_nz {
+        grid-area: 3;
+    }
+
+    .x {
+        height: 15px;
+    }
+}
+
+
+/**Min Media**/
+@media (min-width: 1000px) {
+    h1 {
+        font-size: 5.5em;
+    }
+
+    h2 {
+        font-size: 3.8em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    nav {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%; 
+        padding-top: 2%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .main_chunk header{
+        margin-top: 6%;
+        margin-bottom: 4rem;
+    }
+    .locations {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    margin: 4%;
+    margin-top: -5%;
+    }
+
+    .locations img {
+        margin: 3%;
+
+    }
+}
+
+@media (min-width: 2000px) {
+    .main_chunk header{
+        margin-bottom: 9rem;
+    }
+
+    .main_chunk h1 {
+        font-size: 6em;
+    }
+    
+    .land {
+        width: 600px;
+        height: auto;
+    }
+    
+    .port {
+        height: 550px;
+        width: auto;
+    }
+
+    nav {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%; 
+    }
+  
+}

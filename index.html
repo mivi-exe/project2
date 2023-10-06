@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Project 2 | Gallery</title>
+    <link rel="stylesheet" href="main.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+
+<!--Hi Professor! If you read this I'd like to thoroughly apologize for the messy code. I attempted to do animations/transitions and have a gallery with arrows implemented but getting the functionality was tricky given my current mastery of JS. There man be some extra classes/divs/id/s/sections that remain as artifacts of the attempt. I tried to clean things up as best as I could as I started the project with everything in mind. The only tutorials I found online that I could properly understand used LightBox which I felt wasn't true to the assignment. I hope you enjoy my website :)-->
+
+
+<body>
+    <section class="main_chunk" id="home">
+        <header>
+            <h1>Experience</h1>
+        </header>
+
+        <section class="locations" id="home_select">
+            <img src="/assets/india.jpg" onclick="show_india()">
+            <img src="/assets/nz.jpg" onclick="show_nz()">
+            <img src="/assets/japan.jpg" onclick="show_japan()">
+        </section>
+    </section>
+
+    <section class="chunk" id="india">
+        <header>
+            <h1>Experience</h1>
+            <h2>India</h2>
+            <nav>   
+                <h3 class="nav_nz" id="in_nav_nz" onclick="show_nz()">NEW ZEALAND</h3>
+                <h3 class="nav_home" onclick="show_home()">HOME</h3>
+                <h3 class="nav_jp" id="in_nav_jp" onclick="show_japan()">JAPAN</h3>
+            </nav>
+        </header>
+
+        <section class="pop_up" id="in_box_js">
+            <section class="full_image">
+                <img src="assets/x.png" class="x" id="in_x" onclick="close_image_box_in()">
+                <img class="center_image" id="in_image_js" src="assets/gallery-photos/india/mehndi.jpg">
+            </section>
+        </section>
+
+        <section class="gallery_images" id="in_gallery_js">
+
+            <img class="land" src="assets/gallery-photos/india/village-cliff.jpeg" alt="River Village" onclick="open_image_box_in(this.src)">
+
+            <img class="port" src="assets/gallery-photos/india/night-market.jpg" alt="Indian Night Market" onclick="open_image_box_in(this.src)">
+
+            <img class="port" src="assets/gallery-photos/india/mehndi.jpg" alt="Arms with Mehndi" onclick="open_image_box_in(this.src)">
+
+            <img class="land" src="assets/gallery-photos/india/moutain.jpg" alt="Shallow Lake and Arid Mountain" onclick="open_image_box_in(this.src)">
+
+            <img class="port" src="assets/gallery-photos/india/saree-market.jpg" alt="Saree Store" onclick="open_image_box_in(this.src)">
+
+            <img class="land" src="assets/gallery-photos/india/taj-mahal.jpg" alt="Taj Mahal" onclick="open_image_box_in(this.src)">
+
+            <img class="port" src="assets/gallery-photos/india/river-boat.jpg" alt="River Boat in Jungle" onclick="open_image_box_in(this.src)">
+
+            <img class="land" src="assets/gallery-photos/india/ruins.jpg" alt="Indian Ruins" onclick="open_image_box_in(this.src)">
+
+            <img class="land" src="assets/gallery-photos/india/spice-market.jpg" alt="Spice Market" onclick="open_image_box_in(this.src)">
+
+            <img class="port" src="assets/gallery-photos/india/dark-mahal.png" alt="Gates of Taj" onclick="open_image_box_in(this.src)">
+            
+        </section>
+
+        <script>
+            var in_box_js = document.getElementById("in_box_js");
+            var in_gallery_js = document.getElementById("in_gallery_js");
+            var in_image_js = document.getElementById("in_image_js");
+        
+            function open_image_box_in(picture) {
+                in_box_js.style.display = "flex";
+                in_image_js.src = picture;
+                in_gallery_js.style.display = "none";
+            }
+
+            function close_image_box_in() {
+                in_box_js.style.display = "none";
+                in_gallery_js.style.display = "flex";
+            }
+        </script>
+    </section>
+
+    <section class="chunk" id="nz">
+        <header>
+            <h1>Experience</h1>
+            <h2>New Zealand</h2>
+            <nav>
+                <h3 class="nav_in" id="nz_nav_in" onclick="show_india()">INDIA</h3>
+                <h3 class="nav_home" onclick="show_home()">HOME</h3>
+                <h3  class="nav_jp" id="nz_nav_jp" onclick="show_japan()">JAPAN</h3>
+            </nav>
+        </header>
+
+        <section class="pop_up" id="nz_box_js">
+            <section class="full_image">
+                <img src="assets/x.png" class="x" id="nz_x" onclick="close_image_box_nz()">
+                <img class="center_image" id="nz_image_js" src="assets/gallery-photos/new-zealand/lake-flowers.jpg">
+            </section>
+        </section>
+
+        <section class="gallery_images" id="nz_gallery_js">
+
+            <img class="land" src="assets/gallery-photos/new-zealand/shire.jpg" alt="A Hobbit's Home" onclick="open_image_box_nz(this.src)">
+
+            <img class="port" src="assets/gallery-photos/new-zealand/beach.jpg" alt="Quiet Beach" onclick="open_image_box_nz(this.src)">
+
+            <img class="port" src="assets/gallery-photos/new-zealand/waterfall.jpg" alt="Forest Waterfall" onclick="open_image_box_nz(this.src)">
+
+            <img class="land" src="assets/gallery-photos/new-zealand/city-view.jpg" alt="Coastal City" onclick="open_image_box_nz(this.src)">
+
+            <img class="port" src="assets/gallery-photos/new-zealand/lake-view.jpg" alt="Tree in Lake" onclick="open_image_box_nz(this.src)">
+
+            <img class="land" src="assets/gallery-photos/new-zealand/sheep.jpg" alt="A Flock of Sheep" onclick="open_image_box_nz(this.src)">
+
+            <img class="port" src="assets/gallery-photos/new-zealand/night.jpg" alt="Night Sky" onclick="open_image_box_nz(this.src)">
+
+            <img class="land" src="assets/gallery-photos/new-zealand/lake-flowers.jpg" alt="Meadow of Flowers" onclick="open_image_box_nz(this.src)">
+
+            <img class="land" src="assets/gallery-photos/new-zealand/seals.jpg" alt="Group of Seals" onclick="open_image_box_nz(this.src)">
+
+            <img class="port" src="assets/gallery-photos/new-zealand/tree.jpg" alt="Large Tree" onclick="open_image_box_nz(this.src)">
+            
+        </section>
+
+        <script>
+            var nz_box_js = document.getElementById("nz_box_js");
+            var nz_gallery_js = document.getElementById("nz_gallery_js");
+            var nz_image_js = document.getElementById("nz_image_js");
+        
+            function open_image_box_nz(picture) {
+                nz_box_js.style.display = "flex";
+                nz_image_js.src = picture;
+                nz_gallery_js.style.display = "none";
+            }
+
+            function close_image_box_nz() {
+                nz_box_js.style.display = "none";
+                nz_gallery_js.style.display = "flex";
+            }
+
+        </script>
+    </section>
+
+    <section class="chunk" id="japan">
+        <header>
+            <h1>Experience</h1>
+            <h2>Japan</h2>
+            <nav>
+                <h3 class="nav_in"  id="jp_nav_in" onclick="show_india()">INDIA</h3>
+                <h3 class="nav_home" onclick="show_home()">HOME</h3>
+                <h3 class="nav_nz" id="jp_nav_nz" onclick="show_nz()">NEW ZEALAND</h3>
+            </nav>
+        </header>
+
+        <section class="pop_up" id="japan_box_js">
+            <section class="full_image">
+                <img src="assets/x.png" class="x" id="japan_x" onclick="close_image_box_japan()">
+                <img class="center_image" id="japan_image_js" src="assets/gallery-photos/new-zealand/lake-flowers.jpg">
+            </section>
+        </section>
+
+        <section class="gallery_images" id="japan_gallery_js">
+
+            <img class="land" src="assets/gallery-photos/japan/fuji.jpeg" alt="Mt. Fuji" onclick="open_image_box_japan(this.src)">
+
+            <img class="port" src="assets/gallery-photos/japan/kyoto-night.jpg" alt="Kyoto Night Life" onclick="open_image_box_japan(this.src)">
+
+            <img class="port" src="assets/gallery-photos/japan/sakura-trees.jpg" alt="Sakura Trees" onclick="open_image_box_japan(this.src)">
+
+            <img class="land"src="assets/gallery-photos/japan/shrine.jpg" alt="Forest Shrine" onclick="open_image_box_japan(this.src)">
+
+            <img class="port" src="assets/gallery-photos/japan/garden-entrance.jpg" alt="Garden Entrance" onclick="open_image_box_japan(this.src)">
+
+            <img class="land" src="assets/gallery-photos/japan/osaka-night.jpg" alt="Osaka Bright Signs" onclick="open_image_box_japan(this.src)">
+
+            <img class="port" src="assets/gallery-photos/japan/nara-park.jpg" alt="Deer At Nara Park" onclick="open_image_box_japan(this.src)">
+
+            <img class="land"src="assets/gallery-photos/japan/onsen.jpeg" alt="Japanese Onsen" onclick="open_image_box_japan(this.src)">
+
+            <img class="land" src="assets/gallery-photos/japan/shop.jpg" alt="Snowy Shop" onclick="open_image_box_japan(this.src)">
+
+            <img class="port"src="assets/gallery-photos/japan/torii-gate.jpg" alt="Torii Gates" onclick="open_image_box_japan(this.src)">
+            
+        </section>
+
+        <script>
+            var japan_box_js = document.getElementById("japan_box_js");
+            var japan_gallery_js = document.getElementById("japan_gallery_js");
+            var japan_image_js = document.getElementById("japan_image_js");
+        
+            function open_image_box_japan(picture) {
+                japan_box_js.style.display = "flex";
+                japan_image_js.src = picture;
+                japan_gallery_js.style.display = "none";
+            }
+
+            function close_image_box_japan() {
+                japan_box_js.style.display = "none";
+                japan_gallery_js.style.display = "flex";
+            }
+        </script>
+    </section>
+
+    <!--Nav Select Script-->
+    <script>
+        var india_js = document.getElementById("india");
+        var nz_js = document.getElementById("nz");
+        var japan_js = document.getElementById("japan");
+        var home_js = document.getElementById("home");
+    
+        function show_india() {
+            india_js.style.display = "flex";
+            nz_js.style.display = "none";
+            japan_js.style.display = "none";
+            home_js.style.display = "none";
+            close_image_box_nz();
+            close_image_box_japan();
+        }
+        
+        function show_nz() {
+            india_js.style.display = "none";
+            nz_js.style.display = "flex";
+            japan_js.style.display = "none";
+            home_js.style.display = "none";
+            close_image_box_in();
+            close_image_box_japan();
+        }
+
+        function show_japan() {
+            india_js.style.display = "none";
+            nz_js.style.display = "none";
+            japan_js.style.display = "flex";
+            home_js.style.display = "none";
+            close_image_box_in();
+            close_image_box_nz();
+        }
+
+        function show_home() {
+            india_js.style.display = "none";
+            nz_js.style.display = "none";
+            japan_js.style.display = "none";
+            home_js.style.display = "flex";
+            close_image_box_in();
+            close_image_box_nz();
+            close_image_box_japan();
+        }
+
+    </script>
+</body>
+</html>
