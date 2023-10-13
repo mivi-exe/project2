@@ -8,11 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-
-<!--Hi Professor! If you read this I'd like to thoroughly apologize for the messy code. I attempted to do animations/transitions and have a gallery with arrows implemented but getting the functionality was tricky given my current mastery of JS. There man be some extra classes/divs/id/s/sections that remain as artifacts of the attempt. I tried to clean things up as best as I could as I started the project with everything in mind. The only tutorials I found online that I could properly understand used LightBox which I felt wasn't true to the assignment. I hope you enjoy my website :)-->
-
-
-<body>
+<!--Hi Professor. Some of the transitions are bit ragged. I tried adding jquerry or modifying the existing sections to help smooth the transition and it didn't work. I'll be more careful the next time I take a stab at it-->
+<body id="body_change">
     <section class="main_chunk" id="home">
         <header>
             <h1>Experience</h1>
@@ -37,51 +34,173 @@
         </header>
 
         <section class="pop_up" id="in_box_js">
-            <section class="full_image">
-                <img src="assets/x.png" class="x" id="in_x" onclick="close_image_box_in()">
-                <img class="center_image" id="in_image_js" src="assets/gallery-photos/india/mehndi.jpg">
+            <section class="full_image" id="in_t_js">
+                <img src="assets/x.png" class="x" onclick="close_image_box_in(); in_toggle_off()">
+                <section class="image_box">
+                    <img class="arrows" src="assets/left-arrow.png" onclick="in_previous_image(); in_toggle_off()">
+                    <img class="center_image" id="in_image_js" src="assets/gallery-photos/india/mehndi.jpg">
+                    <img class="arrows" src="assets/right-arrow.png" onclick="in_next_image(); in_toggle_off()">
+                </section>
+                <img class="media_button" id="in_pause" src="assets/pause.png" onclick="in_toggle_off()">
+                <img class="media_button" id="in_play" src="assets/play.png" onclick="in_toggle_on()">
             </section>
         </section>
 
         <section class="gallery_images" id="in_gallery_js">
 
-            <img class="land" src="assets/gallery-photos/india/village-cliff.jpeg" alt="River Village" onclick="open_image_box_in(this.src)">
+            <img class="land" src="assets/gallery-photos/india/village-cliff.jpeg" alt="River Village" onclick="in_open_1(this.src)">
 
-            <img class="port" src="assets/gallery-photos/india/night-market.jpg" alt="Indian Night Market" onclick="open_image_box_in(this.src)">
+            <img class="port" src="assets/gallery-photos/india/night-market.jpg" alt="Indian Night Market" onclick="in_open_2(this.src)">
 
-            <img class="port" src="assets/gallery-photos/india/mehndi.jpg" alt="Arms with Mehndi" onclick="open_image_box_in(this.src)">
+            <img class="port" src="assets/gallery-photos/india/mehndi.jpg" alt="Arms with Mehndi" onclick="in_open_3(this.src)">
 
-            <img class="land" src="assets/gallery-photos/india/moutain.jpg" alt="Shallow Lake and Arid Mountain" onclick="open_image_box_in(this.src)">
+            <img class="land" src="assets/gallery-photos/india/mountain.jpg" alt="Shallow Lake and Arid Mountain" onclick="in_open_4(this.src)">
 
-            <img class="port" src="assets/gallery-photos/india/saree-market.jpg" alt="Saree Store" onclick="open_image_box_in(this.src)">
+            <img class="port" src="assets/gallery-photos/india/saree-market.jpg" alt="Saree Store" onclick="in_open_5(this.src)">
 
-            <img class="land" src="assets/gallery-photos/india/taj-mahal.jpg" alt="Taj Mahal" onclick="open_image_box_in(this.src)">
+            <img class="land" src="assets/gallery-photos/india/taj-mahal.jpg" alt="Taj Mahal" onclick="in_open_6(this.src)">
 
-            <img class="port" src="assets/gallery-photos/india/river-boat.jpg" alt="River Boat in Jungle" onclick="open_image_box_in(this.src)">
+            <img class="port" src="assets/gallery-photos/india/river-boat.jpg" alt="River Boat in Jungle" onclick="in_open_7(this.src)">
 
-            <img class="land" src="assets/gallery-photos/india/ruins.jpg" alt="Indian Ruins" onclick="open_image_box_in(this.src)">
+            <img class="land" src="assets/gallery-photos/india/ruins.jpg" alt="Indian Ruins" onclick="in_open_8(this.src)">
 
-            <img class="land" src="assets/gallery-photos/india/spice-market.jpg" alt="Spice Market" onclick="open_image_box_in(this.src)">
+            <img class="land" src="assets/gallery-photos/india/spice-market.jpg" alt="Spice Market" onclick="in_open_9(this.src)">
 
-            <img class="port" src="assets/gallery-photos/india/dark-mahal.png" alt="Gates of Taj" onclick="open_image_box_in(this.src)">
+            <img class="port" src="assets/gallery-photos/india/dark-mahal.png" alt="Gates of Taj" onclick="in_open_10(this.src)">
             
         </section>
 
         <script>
+            //Open Box
             var in_box_js = document.getElementById("in_box_js");
             var in_gallery_js = document.getElementById("in_gallery_js");
             var in_image_js = document.getElementById("in_image_js");
+            var body_change = document.getElementById("body_change");
+            var in_t_js = document.getElementById("in_t_js")
+            var i = 0;
+
+            function to_top(){
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
         
+            function in_open_1(picture) {
+                open_image_box_in(picture);
+                i = 0;
+            }
+            function in_open_2(picture) {
+                open_image_box_in(picture);
+                i = 1;
+            }
+            function in_open_3(picture) {
+                open_image_box_in(picture);
+                i = 2;
+            }
+            function in_open_4(picture) {
+                open_image_box_in(picture);
+                i = 3;
+            }
+            function in_open_5(picture) {
+                open_image_box_in(picture);
+                i = 4;
+            }
+            function in_open_6(picture) {
+                open_image_box_in(picture);
+                i = 5;
+            }
+            function in_open_7(picture) {
+                open_image_box_in(picture);
+                i = 6;
+            }
+            function in_open_8(picture) {
+                open_image_box_in(picture);
+                i = 7;
+            }
+            function in_open_9(picture) {
+                open_image_box_in(picture);
+                i = 8;
+            }
+
+            function in_open_10(picture) {
+                open_image_box_in(picture);
+                i = 9;
+            }
+
             function open_image_box_in(picture) {
                 in_box_js.style.display = "flex";
+                in_box_js.style.zIndex = 100;
+                in_box_js.classList.add("fade-in");
+                setTimeout(function(){in_box_js.classList.remove("fade-in");}, 20);
+                to_top();
+                body_change.style.height = "1000px";
+                body_change.style.overflow = "hidden";
                 in_image_js.src = picture;
-                in_gallery_js.style.display = "none";
+                in_toggle_on();
+                console.log(i);
             }
 
             function close_image_box_in() {
                 in_box_js.style.display = "none";
-                in_gallery_js.style.display = "flex";
+                body_change.style.overflow = "visible";
+                body_change.style.height = "100%";
             }
+
+            //Previous + Next Image
+            var in_img_array = ["village-cliff.jpeg", "night-market.jpg", "mehndi.jpg", "mountain.jpg", "saree-market.jpg", "taj-mahal.jpg", "river-boat.jpg", "ruins.jpg", "spice-market.jpg", "dark-mahal.png"];
+
+            function change_image_in() {
+                in_box_js.classList.add("fade-out-image");
+                setTimeout(function(){in_box_js.classList.remove("fade-out-image");}, 20);
+                return in_image_js.setAttribute('src', "assets/gallery-photos/india/"+in_img_array[i]);
+                in_box_js.classList.add("fade-in-image");
+                setTimeout(function(){in_box_js.classList.remove("fade-in-image");}, 20);
+            }
+
+            function in_previous_image() {
+                if (i == 0) {
+                    i = 9;
+                }
+
+                 else {
+                    i--;
+                }
+
+                return change_image_in();
+            }
+
+            function in_next_image() {
+                change_image_in();
+                if (i == 9) {
+                    i = 0;
+                }
+
+                else {
+                    i++;
+                }
+                console.log(i);
+                return change_image_in();
+            }
+
+            //Toggle Pause Play
+            var in_pause = document.getElementById("in_pause");
+            var in_play = document.getElementById("in_play");
+            var in_toggle_js;
+
+            function in_toggle_on() {
+                in_toggle_js = window.setInterval(function(){
+                in_next_image();
+                }, 3500);
+                in_play.style.display = "none";
+                in_pause.style.display = "block";
+                
+            }
+
+            function in_toggle_off() {
+                clearInterval(in_toggle_js);
+                in_pause.style.display = "none";
+                in_play.style.display = "block";
+            }
+            
         </script>
     </section>
 
@@ -95,54 +214,164 @@
                 <h3  class="nav_jp" id="nz_nav_jp" onclick="show_japan()">JAPAN</h3>
             </nav>
         </header>
-
+        
         <section class="pop_up" id="nz_box_js">
             <section class="full_image">
-                <img src="assets/x.png" class="x" id="nz_x" onclick="close_image_box_nz()">
-                <img class="center_image" id="nz_image_js" src="assets/gallery-photos/new-zealand/lake-flowers.jpg">
+                <img src="assets/x.png" class="x" onclick="close_image_box_nz(); nz_toggle_off()">
+                <section class="image_box">
+                    <img class="arrows" src="assets/left-arrow.png" onclick="nz_previous_image(); nz_toggle_off()">
+                    <img class="center_image" id="nz_image_js" src="assets/gallery-photos/new-zealand/lake-flowers.jpg">
+                    <img class="arrows" src="assets/right-arrow.png" onclick="nz_next_image(); nz_toggle_off()">
+                </section>
+                <img class="media_button" id="nz_pause" src="assets/pause.png" onclick="nz_toggle_off()">
+                <img class="media_button" id="nz_play" src="assets/play.png" onclick="nz_toggle_on()">
             </section>
         </section>
 
         <section class="gallery_images" id="nz_gallery_js">
 
-            <img class="land" src="assets/gallery-photos/new-zealand/shire.jpg" alt="A Hobbit's Home" onclick="open_image_box_nz(this.src)">
+            <img class="land" src="assets/gallery-photos/new-zealand/shire.jpg" alt="A Hobbit's Home" onclick="nz_open_1(this.src)">
 
-            <img class="port" src="assets/gallery-photos/new-zealand/beach.jpg" alt="Quiet Beach" onclick="open_image_box_nz(this.src)">
+            <img class="port" src="assets/gallery-photos/new-zealand/beach.jpg" alt="Quiet Beach" onclick="nz_open_2(this.src)">
 
-            <img class="port" src="assets/gallery-photos/new-zealand/waterfall.jpg" alt="Forest Waterfall" onclick="open_image_box_nz(this.src)">
+            <img class="port" src="assets/gallery-photos/new-zealand/waterfall.jpg" alt="Forest Waterfall" onclick="nz_open_3(this.src)">
 
-            <img class="land" src="assets/gallery-photos/new-zealand/city-view.jpg" alt="Coastal City" onclick="open_image_box_nz(this.src)">
+            <img class="land" src="assets/gallery-photos/new-zealand/city-view.jpg" alt="Coastal City" onclick="nz_open_4(this.src)">
 
-            <img class="port" src="assets/gallery-photos/new-zealand/lake-view.jpg" alt="Tree in Lake" onclick="open_image_box_nz(this.src)">
+            <img class="port" src="assets/gallery-photos/new-zealand/lake-view.jpg" alt="Tree in Lake" onclick="nz_open_5(this.src)">
 
-            <img class="land" src="assets/gallery-photos/new-zealand/sheep.jpg" alt="A Flock of Sheep" onclick="open_image_box_nz(this.src)">
+            <img class="land" src="assets/gallery-photos/new-zealand/sheep.jpg" alt="A Flock of Sheep" onclick="nz_open_6(this.src)">
 
-            <img class="port" src="assets/gallery-photos/new-zealand/night.jpg" alt="Night Sky" onclick="open_image_box_nz(this.src)">
+            <img class="port" src="assets/gallery-photos/new-zealand/night.jpg" alt="Night Sky" onclick="nz_open_7(this.src)">
 
-            <img class="land" src="assets/gallery-photos/new-zealand/lake-flowers.jpg" alt="Meadow of Flowers" onclick="open_image_box_nz(this.src)">
+            <img class="land" src="assets/gallery-photos/new-zealand/lake-flowers.jpg" alt="Meadow of Flowers" onclick="nz_open_8(this.src)">
 
-            <img class="land" src="assets/gallery-photos/new-zealand/seals.jpg" alt="Group of Seals" onclick="open_image_box_nz(this.src)">
+            <img class="land" src="assets/gallery-photos/new-zealand/seals.jpg" alt="Group of Seals" onclick="nz_open_9(this.src)">
 
-            <img class="port" src="assets/gallery-photos/new-zealand/tree.jpg" alt="Large Tree" onclick="open_image_box_nz(this.src)">
+            <img class="port" src="assets/gallery-photos/new-zealand/tree.jpg" alt="Large Tree" onclick="nz_open_10(this.src)">
             
         </section>
 
         <script>
+            //Open Image
             var nz_box_js = document.getElementById("nz_box_js");
             var nz_gallery_js = document.getElementById("nz_gallery_js");
             var nz_image_js = document.getElementById("nz_image_js");
-        
+            var nz = 0;
+
+            function nz_open_1(picture) {
+                open_image_box_nz(picture);
+                nz = 0;
+            }
+            function nz_open_2(picture) {
+                open_image_box_nz(picture);
+                nz = 1;
+            }
+            function nz_open_3(picture) {
+                open_image_box_nz(picture);
+                nz = 2;
+            }
+            function nz_open_4(picture) {
+                open_image_box_nz(picture);
+                nz = 3;
+            }
+            function nz_open_5(picture) {
+                open_image_box_nz(picture);
+                nz = 4;
+            }
+            function nz_open_6(picture) {
+                open_image_box_nz(picture);
+                nz = 5;
+            }
+            function nz_open_7(picture) {
+                open_image_box_nz(picture);
+                nz = 6;
+            }
+            function nz_open_8(picture) {
+                open_image_box_nz(picture);
+                nz = 7;
+            }
+            function nz_open_9(picture) {
+                open_image_box_nz(picture);
+                nz = 8;
+            }
+
+            function nz_open_10(picture) {
+                open_image_box_nz(picture);
+                nz = 9;
+            }
+
             function open_image_box_nz(picture) {
                 nz_box_js.style.display = "flex";
+                nz_box_js.style.zIndex = 100;
+                to_top();
+                body_change.style.height = "1000px";
+                body_change.style.overflow = "hidden";
                 nz_image_js.src = picture;
-                nz_gallery_js.style.display = "none";
+                nz_toggle_on();
             }
 
             function close_image_box_nz() {
                 nz_box_js.style.display = "none";
-                nz_gallery_js.style.display = "flex";
+                body_change.style.overflow = "visible";
+                body_change.style.height = "100%";
             }
 
+            //Previous + Next Image
+            var nz_img_array = ["shire.jpg", "beach.jpg", "waterfall.jpg", "city-view.jpg", "lake-view.jpg", "sheep.jpg", "night.jpg", "lake-flowers.jpg", "seals.jpg", "tree.jpg"];
+    
+            function change_image_nz() {
+                nz_box_js.classList.add("fade-out-image");
+                setTimeout(function(){nz_box_js.classList.remove("fade-out-image");}, 20);
+                return nz_image_js.setAttribute('src', "assets/gallery-photos/new-zealand/"+nz_img_array[nz]);
+                nz_box_js.classList.add("fade-in-image");
+                setTimeout(function(){nz_box_js.classList.remove("fade-in-image");}, 20);
+            }
+
+            function nz_previous_image() {
+              if (nz == 0) {
+                nz = 9;
+              }
+
+              else {
+                nz--;
+              }
+
+              return change_image_nz();
+            }
+
+            function nz_next_image() {
+              if (nz == 9) {
+                nz = 0;
+              }
+
+              else {
+                nz++;
+              }
+
+              return change_image_nz();
+            }
+
+            //Toggle Pause Play
+            var nz_pause = document.getElementById("nz_pause");
+            var nz_play = document.getElementById("nz_play");
+            var nz_toggle_js;
+
+            function nz_toggle_on() {
+                nz_toggle_js = window.setInterval(function(){
+                nz_next_image();
+                }, 3500);
+                nz_play.style.display = "none";
+                nz_pause.style.display = "block";
+                
+            }
+
+            function nz_toggle_off() {
+                clearInterval(nz_toggle_js);
+                nz_pause.style.display = "none";
+                nz_play.style.display = "block";
+            }
+            
         </script>
     </section>
 
@@ -159,49 +388,162 @@
 
         <section class="pop_up" id="japan_box_js">
             <section class="full_image">
-                <img src="assets/x.png" class="x" id="japan_x" onclick="close_image_box_japan()">
-                <img class="center_image" id="japan_image_js" src="assets/gallery-photos/new-zealand/lake-flowers.jpg">
+                <img src="assets/x.png" class="x" id="japan_x" onclick="close_image_box_japan(); jp_toggle_off()">
+                <section class="image_box">
+                    <img class="arrows" src="assets/left-arrow.png" onclick="jp_previous_image(); jp_toggle_off()">
+                    <img class="center_image" id="japan_image_js" src="assets/gallery-photos/new-zealand/lake-flowers.jpg">
+                    <img class="arrows" src="assets/right-arrow.png" onclick="jp_next_image(); jp_toggle_off()">
+                </section>
+                <img class="media_button" id="jp_pause" src="assets/pause.png" onclick="jp_toggle_off()">
+                <img class="media_button" id="jp_play" src="assets/play.png" onclick="jp_toggle_on()">
             </section>
         </section>
 
         <section class="gallery_images" id="japan_gallery_js">
 
-            <img class="land" src="assets/gallery-photos/japan/fuji.jpeg" alt="Mt. Fuji" onclick="open_image_box_japan(this.src)">
+            <img class="land" src="assets/gallery-photos/japan/fuji.jpeg" alt="Mt. Fuji" onclick="jp_open_1(this.src)">
 
-            <img class="port" src="assets/gallery-photos/japan/kyoto-night.jpg" alt="Kyoto Night Life" onclick="open_image_box_japan(this.src)">
+            <img class="port" src="assets/gallery-photos/japan/kyoto-night.jpg" alt="Kyoto Night Life" onclick="jp_open_2(this.src)">
 
-            <img class="port" src="assets/gallery-photos/japan/sakura-trees.jpg" alt="Sakura Trees" onclick="open_image_box_japan(this.src)">
+            <img class="port" src="assets/gallery-photos/japan/sakura-trees.jpg" alt="Sakura Trees" onclick="jp_open_3(this.src)">
 
-            <img class="land"src="assets/gallery-photos/japan/shrine.jpg" alt="Forest Shrine" onclick="open_image_box_japan(this.src)">
+            <img class="land"src="assets/gallery-photos/japan/shrine.jpg" alt="Forest Shrine" onclick="jp_open_4(this.src)">
 
-            <img class="port" src="assets/gallery-photos/japan/garden-entrance.jpg" alt="Garden Entrance" onclick="open_image_box_japan(this.src)">
+            <img class="port" src="assets/gallery-photos/japan/garden-entrance.jpg" alt="Garden Entrance" onclick="jp_open_5(this.src)">
 
-            <img class="land" src="assets/gallery-photos/japan/osaka-night.jpg" alt="Osaka Bright Signs" onclick="open_image_box_japan(this.src)">
+            <img class="land" src="assets/gallery-photos/japan/osaka-night.jpg" alt="Osaka Bright Signs" onclick="jp_open_6(this.src)">
 
-            <img class="port" src="assets/gallery-photos/japan/nara-park.jpg" alt="Deer At Nara Park" onclick="open_image_box_japan(this.src)">
+            <img class="port" src="assets/gallery-photos/japan/nara-park.jpg" alt="Deer At Nara Park" onclick="jp_open_7(this.src)">
 
-            <img class="land"src="assets/gallery-photos/japan/onsen.jpeg" alt="Japanese Onsen" onclick="open_image_box_japan(this.src)">
+            <img class="land"src="assets/gallery-photos/japan/onsen.jpeg" alt="Japanese Onsen" onclick="jp_open_8(this.src)">
 
-            <img class="land" src="assets/gallery-photos/japan/shop.jpg" alt="Snowy Shop" onclick="open_image_box_japan(this.src)">
+            <img class="land" src="assets/gallery-photos/japan/shop.jpg" alt="Snowy Shop" onclick="jp_open_9(this.src)">
 
-            <img class="port"src="assets/gallery-photos/japan/torii-gate.jpg" alt="Torii Gates" onclick="open_image_box_japan(this.src)">
+            <img class="port"src="assets/gallery-photos/japan/torii-gate.jpg" alt="Torii Gates" onclick="jp_open_10(this.src)">
             
         </section>
 
         <script>
+            //Box Open + Close
             var japan_box_js = document.getElementById("japan_box_js");
             var japan_gallery_js = document.getElementById("japan_gallery_js");
             var japan_image_js = document.getElementById("japan_image_js");
+            var j = 0;
         
-            function open_image_box_japan(picture) {
+            function jp_open_1(picture) {
+                open_image_box_jp(picture);
+                j = 0;
+            }
+            function jp_open_2(picture) {
+                open_image_box_jp(picture);
+                j = 1;
+            }
+            function jp_open_3(picture) {
+                open_image_box_jp(picture);
+                j = 2;
+            }
+            function jp_open_4(picture) {
+                open_image_box_jp(picture);
+                j = 3;
+            }
+            function jp_open_5(picture) {
+                open_image_box_jp(picture);
+                j = 4;
+            }
+            function jp_open_6(picture) {
+                open_image_box_jp(picture);
+                j = 5;
+            }
+            function jp_open_7(picture) {
+                open_image_box_jp(picture);
+                j = 6;
+            }
+            function jp_open_8(picture) {
+                open_image_box_jp(picture);
+                j = 7;
+            }
+            function jp_open_9(picture) {
+                open_image_box_jp(picture);
+                j = 8;
+            }
+
+            function jp_open_10(picture) {
+                open_image_box_jp(picture);
+                j = 9;
+            }
+
+            function open_image_box_jp(picture) {
                 japan_box_js.style.display = "flex";
+                japan_box_js.style.zIndex = 100;
+                to_top();
+                body_change.style.height = "1000px";
+                body_change.style.overflow = "hidden";
                 japan_image_js.src = picture;
-                japan_gallery_js.style.display = "none";
+                jp_toggle_on();
             }
 
             function close_image_box_japan() {
                 japan_box_js.style.display = "none";
-                japan_gallery_js.style.display = "flex";
+                body_change.style.overflow = "visible";
+                body_change.style.height = "100%";
+                
+            }
+
+            //Previous + Next Image
+            var jp_img_array = ["fuji.jpeg", "kyoto-night.jpg", "sakura-trees.jpg", "shrine.jpg", "garden-entrance.jpg", "osaka-night.jpg", "nara-park.jpg", "onsen.jpeg", "shop.jpg", "torii-gate.jpg"];
+
+            function change_image_jp() {
+                japan_box_js.classList.add("fade-out-image");
+                setTimeout(function(){japan_box_js.classList.remove("fade-out-image");}, 20);
+                return japan_image_js.setAttribute('src', "assets/gallery-photos/japan/"+jp_img_array[j]);
+                japan_box_js.classList.add("fade-in-image");
+                setTimeout(function(){japan_box_js.classList.remove("fade-in-image");}, 20);
+
+            }
+
+            function jp_previous_image() {
+              if (j == 0) {
+                j = 9;
+              }
+
+              else {
+                j--;
+              }
+
+              return change_image_jp();
+
+            }
+
+            function jp_next_image() {
+              if (j == 9) {
+                j = 0;
+              }
+
+              else {
+                j++;
+              }
+
+              return change_image_jp();
+            }
+
+            //Toggle Pause Play
+            var jp_pause = document.getElementById("jp_pause");
+            var jp_play = document.getElementById("jp_play");
+            var jp_toggle_js;
+
+            function jp_toggle_on() {
+                jp_toggle_js = window.setInterval(function(){
+                jp_next_image();
+                }, 3500);
+                jp_play.style.display = "none";
+                jp_pause.style.display = "block";
+                
+            }
+
+            function jp_toggle_off() {
+                clearInterval(jp_toggle_js);
+                jp_pause.style.display = "none";
+                jp_play.style.display = "block";
             }
         </script>
     </section>
